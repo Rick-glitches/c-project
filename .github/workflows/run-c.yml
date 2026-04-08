@@ -1,0 +1,19 @@
+name: Run C Program
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install GCC
+      run: sudo apt update && sudo apt install gcc -y
+
+    - name: Compile
+      run: gcc main.c -o main
+
+    - name: Run
+      run: ./main
